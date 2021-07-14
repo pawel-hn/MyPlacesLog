@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/placesFragment">
+
+    <fragment
+        android:id="@+id/placesFragment"
+        android:name="pawel.hn.myplaceslog.fragments.PlacesFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_places">
+        <action
+            android:id="@+id/action_placesFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment"
+            app:popUpTo="@id/placesFragment" />
+        <action
+            android:id="@+id/action_placesFragment_to_detailFragmentRecyclerView"
+            app:destination="@id/detailFragmentRecyclerView" />
+    </fragment>
+    <fragment
+        android:id="@+id/addItemFragment"
+        android:name="pawel.hn.myplaceslog.fragments.AddEditPlaceFragment"
+        android:label="{label}"
+        tools:layout="@layout/fragment_add_edit_place" >
+        <argument
+            android:name="place"
+            app:argType="pawel.hn.myplaceslog.model.Place"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="label"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_addItemFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="pawel.hn.myplaceslog.fragments.MapsFragment"
+        android:label="@string/maps"
+        tools:layout="@layout/fragment_maps">
+        <argument
+            android:name="latitude"
+            app:argType="string" />
+        <argument
+            android:name="longitude"
+            app:argType="string" />
+        <argument android:name="placeLocation" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragmentRecyclerView"
+        android:name="pawel.hn.myplaceslog.fragments.DetailFragmentRecyclerView"
+        android:label="@string/app_name">
+        <action
+            android:id="@+id/action_detailFragmentRecyclerView_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+        <action
+            android:id="@+id/action_detailFragmentRecyclerView_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <argument
+            android:name="place"
+            app:argType="pawel.hn.myplaceslog.model.Place" />
+    </fragment>
+</navigation>

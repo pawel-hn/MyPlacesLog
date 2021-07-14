@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view_place_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    style="@style/CustomMargins"
+    android:padding="5dp"
+    app:cardElevation="30dp"
+    app:cardCornerRadius="5dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.wajahatkarim3.easyflipview.EasyFlipView
+            android:id="@+id/flip_view"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            app:flipOnTouch="false"
+            app:flipEnabled="true"
+            app:flipDuration="400"
+            app:flipType="vertical"
+            app:flipFrom="front"
+            app:autoFlipBack="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Back Layout -->
+            <include
+                android:id="@+id/flip_view_back"
+                layout="@layout/place_item_image_back"/>
+
+            <!-- Front Layout -->
+            <include
+                android:id="@+id/flip_view_front"
+                layout="@layout/place_item_image_front"/>
+
+        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+        <TextView
+            android:id="@+id/text_view_title"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/artifika"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:maxLines="1"
+            android:maxLength="30"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/checkbox_favourite"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/flip_view"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/text_view_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintEnd_toStartOf="@+id/checkbox_favourite"
+            app:layout_constraintStart_toEndOf="@+id/flip_view"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_title"
+            tools:text='Description' />
+
+        <TextView
+            android:id="@+id/text_view_date"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:textSize="12sp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/checkbox_favourite"
+            app:layout_constraintStart_toEndOf="@+id/flip_view"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_description"
+            tools:text='01.02.2020' />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_favourite"
+            style="@style/CustomMargins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            app:buttonCompat="@drawable/checkbox_favourite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

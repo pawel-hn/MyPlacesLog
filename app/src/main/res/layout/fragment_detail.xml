@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/text_vieW_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/artifika"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="Title"
+        style="@style/CustomMargins"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_view_date_detail"
+        style="@style/CustomMargins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_vieW_title"
+        tools:text="01.01.2020" />
+
+    <ImageView
+        android:id="@+id/image_view_detail_favourite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_favorite_red"
+        android:visibility="gone"
+        android:contentDescription="@string/picture"
+        app:layout_constraintBottom_toBottomOf="@+id/text_view_date_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toEndOf="@+id/text_view_date_detail"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/addedit_image_border"
+        android:padding="1dp"
+        style="@style/CustomMargins"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_date_detail">
+
+        <ImageView
+            android:id="@+id/image_vieW_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_placeholder"
+            android:contentDescription="@string/picture"
+            />
+
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/text_view_location_detail"
+        style="@style/CustomMargins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/frame_layout"
+        tools:text="Location" />
+
+    <Button
+        android:id="@+id/button_view_on_map_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_on_map"
+        style="@style/CustomMargins"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_location_detail"/>
+
+    <TextView
+        android:id="@+id/text_view_description_detail"
+        style="@style/CustomMargins"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:padding="4dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_view_on_map_detail"
+        tools:textSize="16sp"
+        tools:text="@string/lorem_ipsum" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

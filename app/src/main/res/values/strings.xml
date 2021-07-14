@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">My Places Log</string>
+    <string name="add_item">add item</string>
+    <string name="title">Title</string>
+    <string name="set_date">Set date</string>
+    <string name="search">Search</string>
+    <string name="sort">Sort</string>
+    <string name="sort_by_title">Sort by title</string>
+    <string name="sort_by_date">Sort by date</string>
+    <string name="delete_all">Delete all</string>
+    <string name="about">About</string>
+    <string name="favourite">Favourite</string>
+    <string name="description">Description</string>
+    <string name="argument_name">place</string>
+    <string name="place_added">New place added</string>
+    <string name="place_edited">Place updated</string>
+    <string name="picture">picture</string>
+    <string name="save">SAVE</string>
+    <string name="location">Location</string>
+    <string name="date">Date</string>
+    <string name="maps">Google Maps</string>
+    <string name="delete_selected">Delete selected</string>
+    <string name="missing_location">No location added</string>
+    <string name="one_item_selected">1 item deleted</string>
+    <string name="items_selected">items deleted</string>
+    <string name="missing_camera">"No camera found on this device"</string>
+
+    <string name="permission_denied">Permission has been denied.</string>
+    <string name="permission_provide">Please provide it in phone settings.</string>
+    <string name="permission_gallery">Permission required to access phone gallery.</string>
+    <string name="permission_location">Permission required to access phone location.</string>
+    <string name="permission_camera">Permission required to access phone camera.</string>
+    <string name="location_enable">Enable location.</string>
+    <string name="location_enable_msg">Location is off. Please enable it to set current.</string>
+
+
+
+
+
+    <string name="lorem_ipsum">It is a long established fact that a reader will be
+        distracted by the readable content of a page when looking at its layout.
+        The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+        of letters, as opposed to using Content here, content here, making it look like
+        readable English. Many desktop publishing packages and web page editors now use
+        Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover
+        many web sites still in their infancy. Various versions have evolved over the years,
+        sometimes by accident, sometimes on purpose (injected humour and the like).</string>
+    <string name="edit_current">Edit current</string>
+    <string name="current_location">Current location</string>
+    <string name="view_on_map">View on Map</string>
+
+
+</resources>
