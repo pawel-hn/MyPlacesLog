@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import pawel.hn.myplaceslog.DATE_FORMAT
+import pawel.hn.myplaceslog.utils.DATE_FORMAT
 import pawel.hn.myplaceslog.R
 import pawel.hn.myplaceslog.databinding.ItemPlaceBinding
 import pawel.hn.myplaceslog.model.Place
@@ -30,18 +30,13 @@ class PlacesAdapter(
         fun favouriteChecked(place: Place, isFav: Boolean)
     }
 
-    /**
-     * ActionMode is initialized when contextual menu is lunched (when signe item is long clicked)
-     */
+
     private lateinit var actionMode: ActionMode
     private var multipleSelection = false
     private var selectedPlaces = arrayListOf<Place>()
     private var viewHolders = arrayListOf<PlacesViewHolder>()
 
 
-    /**
-     * To be called when action mode is on and apply proper title for actionmode app bar
-     */
     private fun applySelection(place: Place) {
         if (selectedPlaces.contains(place)) {
             selectedPlaces.remove(place)
@@ -71,9 +66,6 @@ class PlacesAdapter(
         holder.bind(getItem(position), position)
     }
 
-    /**
-     * below four methods come from ActionMode callback.
-     */
     override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
         actionMode = mode!!
         mode.menuInflater?.inflate(R.menu.contextual_menu, menu)
@@ -118,9 +110,7 @@ class PlacesAdapter(
         selectedPlaces.clear()
     }
 
-    /**
-     * Change title while ActionMode is on.
-     */
+
     private fun setActionModeTitle() {
         when (selectedPlaces.size) {
             0 -> {

@@ -7,29 +7,17 @@ import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
-import pawel.hn.myplaceslog.DATA_STORE_LAST_VIEWED
-import pawel.hn.myplaceslog.DATA_STORE_SHOW_FAVS
-import pawel.hn.myplaceslog.DATA_STORE_SORT_ORDER
-import pawel.hn.myplaceslog.LAST_VIEWED_STARTING_POSITION
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
-/**
- * Data store, alternative for SharedPreferences, stores values selected by user, which defines a way how
- * data is displayed to user.
- */
+
 @Singleton
 class DataStoreRepository @Inject constructor(@ApplicationContext val context: Context) {
 
-    /**
-     * DataStore for sort order and show favourites
-     */
+
     private val Context.myPlacesDataStore: DataStore<Preferences> by preferencesDataStore("user_preferences")
 
-    /**
-     * DataStore for position of last viewed item through horizontal recycler view.
-     */
     private val Context.myPlacesDataStorePosition: DataStore<Preferences> by preferencesDataStore("last_position")
 
     val preferencesFlow = context.myPlacesDataStore.data
@@ -60,7 +48,8 @@ class DataStoreRepository @Inject constructor(@ApplicationContext val context: C
             }
         }
         .map { preferences ->
-            val lastViewed = preferences[PreferencesKeys.LAST_VIEWED] ?: LAST_VIEWED_STARTING_POSITION
+            val lastViewed =
+                preferences[PreferencesKeys.LAST_VIEWED] ?: LAST_VIEWED_STARTING_POSITION
 
             LastViewedPlaceDetail(
                 lastViewed
@@ -76,9 +65,10 @@ class DataStoreRepository @Inject constructor(@ApplicationContext val context: C
         preferences[PreferencesKeys.SHOW_FAVOURITES] = showFavs
     }
 
-    suspend fun updateLastViewed(position: Int) = context.myPlacesDataStorePosition.edit { preferences ->
-        preferences[PreferencesKeys.LAST_VIEWED] = position
-    }
+    suspend fun updateLastViewed(position: Int) =
+        context.myPlacesDataStorePosition.edit { preferences ->
+            preferences[PreferencesKeys.LAST_VIEWED] = position
+        }
 
     private object PreferencesKeys {
         val SORT_ORDER = stringPreferencesKey(DATA_STORE_SORT_ORDER)
@@ -89,7 +79,7 @@ class DataStoreRepository @Inject constructor(@ApplicationContext val context: C
 
 data class FilterPreferences(
     val sortOrder: SortOrder,
-    val showFavs: Boolean
+    val showFavs: Boolean,
 )
 
 data class LastViewedPlaceDetail(val position: Int)

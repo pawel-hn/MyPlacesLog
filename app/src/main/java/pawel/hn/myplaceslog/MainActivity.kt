@@ -27,9 +27,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfig)
     }
 
-    /**
-     * overridden method so the up arrow on appbar navigate back to main (list) screen.
-     */
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_container)
         return NavigationUI.navigateUp(navController, appBarConfig)

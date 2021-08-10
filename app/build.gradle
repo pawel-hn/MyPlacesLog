@@ -93,6 +93,4 @@ dependencies {
     //EasyFlip for image icon on main list
     implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:3.0.0'
 
-    //ViewPager
-    implementation 'androidx.viewpager2:viewpager2:1.0.0'
 }

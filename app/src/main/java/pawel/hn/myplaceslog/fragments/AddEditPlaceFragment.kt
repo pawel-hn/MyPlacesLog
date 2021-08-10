@@ -39,9 +39,9 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
-import pawel.hn.myplaceslog.ADD_EDIT_REQUEST_KEY
-import pawel.hn.myplaceslog.ADD_EDIT_RESULT
-import pawel.hn.myplaceslog.DATE_FORMAT
+import pawel.hn.myplaceslog.utils.ADD_EDIT_REQUEST_KEY
+import pawel.hn.myplaceslog.utils.ADD_EDIT_RESULT
+import pawel.hn.myplaceslog.utils.DATE_FORMAT
 import pawel.hn.myplaceslog.R
 import pawel.hn.myplaceslog.databinding.FragmentAddEditPlaceBinding
 import pawel.hn.myplaceslog.viewmodels.AddEditPlaceViewModel
@@ -85,10 +85,6 @@ class AddEditPlaceFragment : Fragment(R.layout.fragment_add_edit_place),
         setHasOptionsMenu(true)
     }
 
-    /**
-    Function to check current user location. Annotation added as at point when its called, it was
-    already checked for permission.
-     */
     @SuppressLint("MissingPermission")
     private fun requestNewLocation() {
         val locationRequest = LocationRequest.create().apply {
@@ -105,9 +101,6 @@ class AddEditPlaceFragment : Fragment(R.layout.fragment_add_edit_place),
         )
     }
 
-    /**
-     * Callback required to by location provider to set users geolocation.
-     */
     private val locCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
             super.onLocationResult(locationResult)

@@ -1,4 +1,4 @@
-package pawel.hn.myplaceslog
+package pawel.hn.myplaceslog.utils
 
 import android.app.Activity
 

@@ -17,7 +17,8 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import pawel.hn.myplaceslog.*
 import pawel.hn.myplaceslog.model.Place
-import pawel.hn.myplaceslog.repository.Repository
+import pawel.hn.myplaceslog.repository.PlacesRepository
+import pawel.hn.myplaceslog.utils.*
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
@@ -25,7 +26,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AddEditPlaceViewModel @Inject constructor(
-    private val repository: Repository,
+    private val placesRepository: PlacesRepository,
     private val savedState: SavedStateHandle
 ) : ViewModel() {
 
@@ -115,12 +116,12 @@ class AddEditPlaceViewModel @Inject constructor(
     }
 
     private fun insertPlace(newPlace: Place) = viewModelScope.launch {
-        repository.insertPlace(newPlace)
+        placesRepository.insertPlace(newPlace)
         addEditPlaceEventChannel.send(AddEditPlaceEvent.NavigateBackWithResult(ADD_PLACE_RESULT_OK))
     }
 
     private fun updatePlace(updatedPlace: Place) = viewModelScope.launch {
-        repository.update(updatedPlace)
+        placesRepository.update(updatedPlace)
         addEditPlaceEventChannel.send(AddEditPlaceEvent.NavigateBackWithResult(EDIT_PLACE_RESULT_OK))
     }
 

@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import pawel.hn.myplaceslog.LAST_VIEWED_STARTING_POSITION
+import pawel.hn.myplaceslog.utils.LAST_VIEWED_STARTING_POSITION
 import pawel.hn.myplaceslog.R
 import pawel.hn.myplaceslog.adapters.PlacesHorizontalAdapter
 import pawel.hn.myplaceslog.databinding.FragmentDetailRecyclerViewBinding
@@ -58,12 +58,6 @@ class DetailFragmentRecyclerView : Fragment(R.layout.fragment_detail_recycler_vi
         }
 
 
-        /**
-        * When user navigates to this fragment, he expects to see details of place which he clicked.
-         * So recycler view scrolls to place which is passed via SafeArgs. When user updates
-         * or presses back to detail screen, position is taken from Data Store. Its saved there every
-         * time user scrolls between horizontal detail screens.
-         */
         mainViewModel.placesObservable.observe(viewLifecycleOwner) {
             adapterHorizontal.submitList(it)
             val position = it.indexOf(placeClicked)

@@ -4,7 +4,6 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -27,6 +26,9 @@ import pawel.hn.myplaceslog.*
 import pawel.hn.myplaceslog.adapters.PlacesAdapter
 import pawel.hn.myplaceslog.databinding.FragmentPlacesBinding
 import pawel.hn.myplaceslog.model.Place
+import pawel.hn.myplaceslog.utils.ADD_EDIT_REQUEST_KEY
+import pawel.hn.myplaceslog.utils.ADD_EDIT_RESULT
+import pawel.hn.myplaceslog.utils.LAST_VIEWED_STARTING_POSITION
 import pawel.hn.myplaceslog.utils.SortOrder
 import pawel.hn.myplaceslog.viewmodels.MainViewModel
 
@@ -56,9 +58,6 @@ class PlacesFragment : Fragment(R.layout.fragment_places), PlacesAdapter.OnCLick
         }
         viewModel.lastViewedPlaceDetail(LAST_VIEWED_STARTING_POSITION)
 
-        /**
-         * Result passed from AddEdit screen so this framgent knows what msg to show to user.
-         */
         setFragmentResultListener(ADD_EDIT_REQUEST_KEY) { _, bundle ->
             val result = bundle.getInt(ADD_EDIT_RESULT)
             viewModel.onAddEditResult(result, requireContext())
@@ -69,10 +68,6 @@ class PlacesFragment : Fragment(R.layout.fragment_places), PlacesAdapter.OnCLick
         setHasOptionsMenu(true)
     }
 
-    /**
-    Subscribes to all events emitted by Flow defined in viewModel, where is decided what and when to show to user,
-    or how to handle clicks.
-     */
     private fun subscribeToEvent() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.placesEvent.collect { event ->

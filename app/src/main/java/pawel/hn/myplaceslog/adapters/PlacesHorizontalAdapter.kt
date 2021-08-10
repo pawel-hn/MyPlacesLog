@@ -8,7 +8,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import pawel.hn.myplaceslog.DATE_FORMAT
+import pawel.hn.myplaceslog.utils.DATE_FORMAT
 import pawel.hn.myplaceslog.R
 import pawel.hn.myplaceslog.databinding.FragmentDetailBinding
 import pawel.hn.myplaceslog.model.Place

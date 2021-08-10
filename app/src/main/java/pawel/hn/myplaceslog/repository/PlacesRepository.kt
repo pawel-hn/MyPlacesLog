@@ -6,10 +6,7 @@ import pawel.hn.myplaceslog.utils.SortOrder
 import javax.inject.Inject
 
 
-/**
- * Repository to mediates between database and viewModels
- */
-class Repository @Inject constructor(private val placesDao: PlacesDao) {
+class PlacesRepository @Inject constructor(private val placesDao: PlacesDao) {
 
     fun placesList(searchQuery: String, sortOrder: SortOrder, showFav: Boolean)
     = placesDao.getPlaces(searchQuery,sortOrder, showFav)

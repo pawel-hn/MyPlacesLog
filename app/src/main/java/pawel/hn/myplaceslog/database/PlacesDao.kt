@@ -12,9 +12,6 @@ interface PlacesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPlace(place: Place)
 
-    /**
-    *Source of data, based on sort criteria chosen by user from appbar.
-    */
     fun getPlaces(searchQuery: String, sortOrder: SortOrder, showFav: Boolean): Flow<List<Place>> =
         when (sortOrder) {
             SortOrder.BY_TITLE -> getPlacesOrderByTitle(searchQuery, showFav)
